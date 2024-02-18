@@ -1,1 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Math Mind</title>
+	<script type="text/javascript" src="js/phaser.min.js"></script>
 
+	
+<script src="js/boot.js"></script>
+<script src="js/preload.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/tips.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/theGame.js"></script>
+<script src="js/theMediumGame.js"></script>
+<script src="js/theHardGame.js"></script>
+<script src="js/gameOver.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />	
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="mobile-web-app-capable" content="yes" />
+
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+ var loadPath = "";
+/* var AdMob;*/
+var isAdReady = false;
+var currentDevice="HD";
+var isVideoAdReady = false;
+var isRevMob = false;
+var connectionStatus;
+var isVideoAdViewd = false;
+var isVideoAdStartedLoading = false;
+var isFullScreenAdReady = false;
+var androidApplicationLicenseKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs9IzsTlsJ9Fg9IZyun0NJ90zehMYcO5LI2tkJWasChELfls4+8PZHKjVL6htVQYTGOGEtuw44z/yDvIl8yCT/Rlb4KptqYf0NFW8FrdUTLBm2oswKu+T+SiOozj/3tA0fXnDIcYrcFem3Un3TbLhQvHwBrr+EodM0G1rLuJ9BasmuuPrBBzk3oVlCtbDD1wrEwBHTr+cDg8z7LMuYwVzjtEdzOL4k1qO2oxQgPfb37E8TKB+ngriYUkalvpfTbKu7+cObqqOpHsy++5lcYJqA9nZ4wmixdZdjyngGVGQcjrVLV+eZiU+W6LJ+JM6q4WP9/fsj0BHtk7Gn3gZ49k9wQIDAQAB";
+var productIds = "purchase1";
+var appId = "1409201";
+var leaderboardId = "CgkIutuf3dwJEAIQAQ";
+var existing_purchases = [];
+var product_info = {};
+var isAdRemoved;
+var videoAdPlacementId = "defaultZone";
+var rewardedVideoAdPlacementId = "rewardedVideo";
+var isTest = false;
+var revmob;
+var isEffects;
+
+
+(function() {
+
+    var currentLevel;
+    var pauseCounter;
+    var screenWidth;
+    var screenHeight;
+
+  
+    screenWidth = 720;
+    screenHeight = 1280;
+    loadPath = "assets/SHD/";
+    currentDevice = "SHD";
+
+    var game = new Phaser.Game(screenWidth, screenHeight, Phaser.AUTO, "game");
+
+    isEffects = localStorage.getItem("isEffects");
+    if(isEffects == undefined || isEffects == null)
+    {
+        localStorage.setItem("isEffects","true");
+        isEffects = "true";
+    }
+
+    localStorage.setItem("isMute","false");
+    //var game = new Phaser.Game(720, 1230, Phaser.AUTO, "game");
+    game.state.add("Boot", boot);
+
+    game.state.add("Preload", preload);
+    game.state.add("menu", menu);
+    game.state.add("tips", tips);
+
+    game.state.add("levels", levels);
+    game.state.add("settings", settings);
+    game.state.add("TheGame", theGame);
+
+    game.state.add("TheMediumGame", theMediumGame);
+    game.state.add("TheHardGame", theHardGame);
+    game.state.add("GameOver", gameOver);
+    game.state.start("Boot");
+
+   
+
+})();
+
+</script>
+
+</body>
+</html>
